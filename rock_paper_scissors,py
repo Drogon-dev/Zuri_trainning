@@ -1,0 +1,39 @@
+import random
+
+def game():
+    players_choice= input("Enter a choice (R for rock, P for paper, S for scissors):").upper()
+    possible_choice = [ 'R', 'P', 'S']
+    computer_choice = random.choice(possible_choice)
+
+    if players_choice in possible_choice:
+        print(f"Your choice is {players_choice} while the computer choice is {computer_choice}")
+        if players_choice == computer_choice:
+            print("Its a tie, pick again")
+            game()
+        elif players_choice == "R":
+            if computer_choice== "S":
+                print("Rock smashes scissors! You win!")
+            else:
+                print("Paper covers rock! You lose.")
+        elif players_choice == "P":
+            if computer_choice == "R":
+                print("Paper covers rock! You win!")
+            else:
+                print("Scissors cuts paper! You lose.")
+        elif players_choice == "S":
+            if computer_choice == "P":
+                print("Scissors cuts paper! You win!")
+            else:
+                print("Rock smashes scissors! You lose.")
+        print("Do you want to play again?\nEnter Y for Yes or N for No")
+        play_again = input(": ").upper()
+        if play_again == 'Y':
+            game()
+        else:
+            exit()
+    else: 
+        print("Invalid selection try again")
+        game()
+
+
+game()
